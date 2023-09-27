@@ -7,14 +7,14 @@ function letterAtPosition(str, position) {
 }
 
 
-// It has also been discovered some of the words have been seperated and need to be joined back together, sometimes with an extra seperator, if one is not provided assume that it will be an empty space
+// It has also been discovered some of the words have been separated and need to be joined back together, sometimes with an extra separator, if one is not provided assume that it will be an empty space
 
-// Write a function that will join two strings with an optional seperating character 
+// Write a function that will join two strings with an optional separating character 
 function concat(str1, str2, seperator = " ") {
   return (str1 + seperator + str2)
 }
 
-// Our cryptologists have discovered that some of the letters that were seperated out should also be capitalized.
+// Our cryptologists have discovered that some of the letters that were separated out should also be capitalized.
 
 // Write a function that will capitalize the letter at a given position and return it
 function capitalizer(str, position) {
@@ -25,6 +25,5 @@ function capitalizer(str, position) {
 // There are a few key words we need to look for to find if they are in the message
 // write a function that will take in two strings and identify if the first string 'includes' the second
 function messageContainsPhrase(message, phrase) {
-
-  return
+  return message.includes(phrase)
 }

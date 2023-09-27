@@ -11,9 +11,23 @@
 // output: 7
 
 function daysPosition(day, offset) {
-  console.log(day, offset)
-  if (day == 'Sunday') {
-    return
+  const week = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+  let dayIndex = week.findIndex(d => d == day);
+  // console.log(day, offset, !!offset, dayIndex);
+
+  // console.log('sun', week.findIndex(d => d == 'Sunday'));
+  // console.log('mon', week.findIndex(d => d == 'Monday'));
+  // console.log('day', week.findIndex(d => d == day));
+
+  if (dayIndex == -1) {
+    return `That's not a day of the week`
+  }
+
+  if (offset) { //starts on monday
+    return (dayIndex)
+  }
+  if (!offset) { //starts on monday
+    return (dayIndex + 1)
   }
 }
 
@@ -35,10 +49,29 @@ function daysPosition(day, offset) {
  */
 
 function golfScore(score, par) {
-  // TODO YOUR CODE HERE
+  let diff = score - par;
+  if (diff == -3) {
+    return 'Ace'
+  }
+  if (diff == -2) {
+    return 'Eagle'
+  }
+  if (diff == -1) {
+    return 'Birdie'
+  }
+  if (diff == 0) {
+    return 'Par'
+  }
+  if (diff == 1) {
+    return 'Bogie'
+  }
+  if (diff == 2) {
+    return 'Double Bogie'
+  }
+  if (diff >= 3) {
+    return 'Ouch'
+  }
 }
-
-
 
 // We haven't had much success with our previous attempts so we have decided to try to get answers out of her accomplice, they are a notorious gambler so we challenged them to a game of blackjack. The stakes are too high to lose, so we are going to have to cheat.
 
@@ -61,5 +94,19 @@ function golfScore(score, par) {
 let count = 0
 
 function cardCounter(card) {
-  // TODO YOUR CODE HERE
+  // console.log('card', card, 'count', count)
+  const plus1 = ['2', '3', '4', '5', '6'];
+  const minus1 = ['10', 'J', 'Q', 'K', 'A'];
+  const noDiff = ['7', '8', '9'];
+
+  if (plus1.includes(card)) { count++; }
+  if (minus1.includes(card)) { count--; }
+  // if (noDiff.includes(card)) { console.log(count) }
+
+  if (count > 0) {
+    return `${count} Bet`
+  }
+  if (count <= 0) {
+    return `${count} Hold`
+  }
 }
